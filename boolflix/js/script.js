@@ -8,10 +8,10 @@ Voto
 */
 
 // eseguo chiamata api per la ricerca film
-function ricercaFilm() {
+function ricercaFilm(cerca) {
 
  $.ajax({
-  url:"https://api.themoviedb.org/3/search/movie?api_key=7aa608e30656e9fec4f2ce271a198fc4&language=it-IT&query",
+  url:"https://api.themoviedb.org/3/search/movie?api_key=7aa608e30656e9fec4f2ce271a198fc4&language=it-ITquery=" + cerca,
   method: "GET",
   success: function (film) {
    for (var i = 0; i < film.results.length; i++) {
@@ -23,9 +23,15 @@ function ricercaFilm() {
 };
 
 
+//inizio a portarmi avanti eseguendo la funzione legata al bottone per cercare il film
+$("#go").click(function(){
+ $(".main").remove();
+ var stampa = $(".search-bar").val();
+ ricercaFilm(stampa);
+});
 
 
 //funzione generale jquery
 $( document ).ready(function() {
- ricercaFilm();
+ ricercaFilm(cerca);
 });
