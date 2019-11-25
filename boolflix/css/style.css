@@ -40,7 +40,23 @@ button{
 /* main */
 .main{
  flex-basis: 85%;
- text-align: center;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ flex-wrap: wrap;
+ padding: 100px 0;
  overflow-y: auto;
-  border: 1px solid black;
+ border: 1px solid black;
+}
+
+.movies{
+ display: flex;
+ justify-content: flex-start;
+ align-items: center;
+ flex-direction: column;
+ flex-basis: 200px;
+ padding: 20px;
+ margin: 10px 20px;
+ height: 360px;
+ text-align: center;
 }
