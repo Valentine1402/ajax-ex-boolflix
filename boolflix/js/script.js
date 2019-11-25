@@ -7,8 +7,25 @@ Lingua
 Voto
 */
 
+// eseguo chiamata api per la ricerca film
+function ricercaFilm(cerca) {
+
+ $.ajax({
+  url:"https://api.themoviedb.org/3/search/movie?api_key=7aa608e30656e9fec4f2ce271a198fc4" ,
+  method: "GET",
+  success: function (film) {
+   for (var i = 0; i < film.results.length; i++) {
+    console.log(film.results[i]);
+   }
+  }
+ });
+
+};
+
+
+
 
 //funzione generale jquery
 $( document ).ready(function() {
-
- });
+ ricercaFilm(cerca);
+});
