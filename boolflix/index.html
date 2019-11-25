@@ -11,33 +11,36 @@
   <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
   <!-- Css link -->
   <link rel="stylesheet" href="css/style.css">
-  <title>Boolflix</title>
+  <title>BOOLFLIX</title>
  </head>
  <body>
 
-   <div class="container">
-    <div class="nav">
+   <!-- navbar -->
+   <header>
+    <div class="container">
+     <div class="logo"></div>
      <div class="search">
-       <input type="text" size="35" placeholder="  Cerca o inizia un nuovo film" class="search-bar"/>
-       <button type="button" name="button" id="go">Clicca qui</button>
+      <input type="text" size="35" placeholder="  Cerca o inizia un nuovo film" class="search-bar"/>
+      <button type="button" name="button" id="go">Clicca qui</button>
      </div>
     </div>
-   <div class="main">
-    <script id="hb-template" type= "text/x-handlebars-template">
-     <div class="movies">
-      <ul>
-       <li>{{titolo}}</li>
-        <li>{{titoloOriginale}}</li>
-        <li>{{lingua}}</li>
-        <li>{{voto}}</li>
-      </ul>
-     </div>
-    </script>
-   </div>
+   </header>
+
+   <!-- main -->
+   <div class="main container">
+
    </div>
 
 
-
+    <!-- template invisibile per stampa -->
+   <script id="hb-template" type= "text/x-handlebars-template">
+    <div class="film">
+     <h3>{{titolo}}</h3>
+     <span>{{titoloOriginale}}</span>
+     <span>{{lingua}}</span>
+     <span>{{voto}}</span>
+    </div>
+   </script>
   <!-- jquery -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <!-- Javascript -->
