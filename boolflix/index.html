@@ -17,11 +17,13 @@
 
    <!-- navbar -->
    <header>
-    <div class="container">
-     <div class="logo"></div>
+    <div class="nav container">
+     <div class="logo">
+      <img src="https://fontmeme.com/permalink/191125/a316b173f92c96e9387ffd40e7196bbb.png" alt="">
+     </div>
      <div class="search">
-      <input type="text" size="35" placeholder="  Cerca o inizia un nuovo film" class="search-bar"/>
-      <button type="button" name="button" id="go">Clicca qui</button>
+      <input type="text" size="33" placeholder="  Cerca e inizia un nuovo film" class="search-bar"/>
+      <button type="button" name="button" id="go">Cerca</button>
      </div>
     </div>
    </header>
@@ -35,10 +37,11 @@
     <!-- template invisibile per stampa -->
    <script id="hb-template" type= "text/x-handlebars-template">
     <div class="film">
-     <h3>{{titolo}}</h3>
-     <span>{{titoloOriginale}}</span>
-     <span>{{lingua}}</span>
-     <span>{{voto}}</span>
+     <h3> Titolo : {{titolo}}</h3>
+     <span>Titolo originale : {{titoloOriginale}}</span>
+     <span>lingua : {{lingua}}</span>
+     <span>Voto:{{voto}}</span>
+     <span>{{stars}}</span>
     </div>
    </script>
   <!-- jquery -->

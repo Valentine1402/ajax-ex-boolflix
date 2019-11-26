@@ -10,7 +10,6 @@ body {
  min-height: 100vh;
 }
 
-/* contenitore generale */
 .container{
  width: 1070px;
  height: 100%;
@@ -21,23 +20,30 @@ body {
 header{
  width: 100%;
  height: 70px;
- padding: 20px;
- border: 1px solid black;
+ padding: 16px;
+ background-color: black;
+}
+
+header img {
+ height: 48px;
+}
+
+.nav{
+ display: flex;
+ justify-content: space-between;
 }
 
 /* searchbar */
-
-.search{
-display:flex;
-justify-content: flex-end;
-}
-
 input{
-height: 30px;
+height: 28px;
+border-radius: 3px;
 }
 
 button{
- padding: 7px;
+ padding: 6px;
+ border-radius: 3px;
+ background-color: red;
+ color: white;
 }
 
 /* main */
