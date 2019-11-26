@@ -77,7 +77,8 @@ button{
  text-transform: uppercase;
 }
 
+
 /* bandiera */
-.language{
- height:5%;
+.film img{
+ max-width:15%;
 }
