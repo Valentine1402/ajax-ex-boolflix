@@ -8,6 +8,7 @@
 
 body {
  min-height: 100vh;
+background-color: grey;
 }
 
 .container{
@@ -40,8 +41,8 @@ border-radius: 3px;
 }
 
 button{
- padding: 6px;
- border-radius: 3px;
+ padding: 7px;
+ border-radius: 5px;
  background-color: red;
  color: white;
 }
@@ -70,10 +71,9 @@ button{
 }
 
 /* titoli film */
-.movies h3 {
- margin: 20px 0;
- color: white;
- font-size: 22px;
+h3 {
+ margin: 10px 0;
+ font-size: 20px;
  text-transform: uppercase;
 }
 

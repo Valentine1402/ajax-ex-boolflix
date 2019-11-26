@@ -52,6 +52,44 @@ function ricercaFilm(stampa) {
  });
 }
 
+// eseguo chiamata api per la ricerca serieTv
+function ricercaSerieTv(stampa) {
+ $.ajax({
+  url:"https://api.themoviedb.org/3/search/tv",
+  method: "GET",
+  data: {
+   api_key: "7aa608e30656e9fec4f2ce271a198fc4",
+   language: "it-IT",
+   query: stampa
+  },
+  success: function (film) {
+   //creo una variabile in cui faccio un clone per la successiva stampa
+   var primaBozza = $("#hb-template").html();
+   // creo una variabile in cui trasferisco i dati da qui all'html
+   var trasferisciDati = Handlebars.compile(primaBozza);
+   //utilizzo il ciclo for per attraversare gli oggetti
+   for (var i = 0; i < film.results.length; i++) {
+    // creo una variabile contenente un oggetto dove inserirò i dati recuperati da Ajax
+    var contenitoreOggetti = {
+     titolo: film.results[i].title,
+     titoloOriginale:film.results[i].original_title,
+     lingua:flagGenerator(film.results[i].original_language),
+     voto:film.results[i].vote_average,
+     stars: generaStelle(film.results[i].vote_average)};
+    // creo una variabile per stampare in pagina il tutto
+    var stampaDati = trasferisciDati(contenitoreOggetti);
+    // appendo la copia dell'oggetto per l'output in pagina
+    $(".main").append(stampaDati);
+   }
+  //azzero la searchbar dopo che l'utente ha cliccato
+  $(".search-bar").val("");
+  },
+  error : function () {
+  alert("Errore");
+ }
+ });
+}
+
 
 //funzione legata al bottone per cercare il film
 $("#go").click(function(){
@@ -113,4 +151,5 @@ return bandieraDaAggiungere;
 //funzione generale jquery
 $( document ).ready(function() {
  ricercaFilm("horror");
+ ricercaSerieTv("tv")
 });
