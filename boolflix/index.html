@@ -37,11 +37,11 @@
     <!-- template invisibile per stampa -->
    <script id="hb-template" type= "text/x-handlebars-template">
     <div class="film">
-     <img class="foto"src="{{poster}}" alt="">
-     <h3> Titolo : {{titolo}}</h3>
-     <span class="original-title">Titolo originale : {{titoloOriginale}}</span>
-     <span>lingua : {{{lingua}}}</span><span id="language">{{{bandiera}}}</span>
-     <span>Voto:{{voto}}</span>
+     <img class="foto-copertina" src="https://image.tmdb.org/t/p/w780{{poster}}" alt="">
+     <h3>{{titolo}}</h3>
+     <span class="original-title">{{titoloOriginale}}</span>
+     <span>{{{lingua}}}</span><span id="language">{{{bandiera}}}</span>
+     <span class="my_Voto">{{voto}}</span>
      <span class="my_star">{{{stars}}}</span>
     </div>
    </script>

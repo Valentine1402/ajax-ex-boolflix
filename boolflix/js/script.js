@@ -33,6 +33,7 @@ function ricercaFilm(stampa) {
    for (var i = 0; i < film.results.length; i++) {
     // creo una variabile contenente un oggetto dove inserirò i dati recuperati da Ajax
     var contenitoreOggetti = {
+     poster:film.results[i].poster_path,
      titolo: film.results[i].title,
      titoloOriginale:film.results[i].original_title,
      lingua:flagGenerator(film.results[i].original_language),
@@ -71,6 +72,7 @@ function ricercaSerieTv(stampa) {
    for (var i = 0; i < film.results.length; i++) {
     // creo una variabile contenente un oggetto dove inserirò i dati recuperati da Ajax
     var contenitoreOggetti = {
+     poster:film.results[i].poster_path,
      titolo: film.results[i].title,
      titoloOriginale:film.results[i].original_title,
      lingua:flagGenerator(film.results[i].original_language),
@@ -97,7 +99,6 @@ $("#go").click(function(){
  var inPagina = $(".search-bar").val();
  ricercaFilm(inPagina);
 });
-
 
 // Funzione per arrotondare le stelle
 function arrotonda(stelline) {
@@ -147,9 +148,8 @@ return bandieraDaAggiungere;
 }
 
 
-
 //funzione generale jquery
 $( document ).ready(function() {
  ricercaFilm("horror");
- ricercaSerieTv("tv")
+ ricercaSerieTv("tv");
 });
