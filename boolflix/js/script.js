@@ -35,7 +35,7 @@ function ricercaFilm(stampa) {
     var contenitoreOggetti = {
      titolo: film.results[i].title,
      titoloOriginale:film.results[i].original_title,
-     lingua:film.results[i].original_language,
+     lingua:flagGenerator(film.results[i].original_language),
      voto:film.results[i].vote_average,
      stars: generaStelle(film.results[i].vote_average)};
     // creo una variabile per stampare in pagina il tutto
@@ -81,6 +81,34 @@ function generaStelle(voto) {
  }
  return valutazione;
 };
+
+//funzione per aggiungere le badiere
+function flagGenerator(change) {
+ var bandieraDaAggiungere = '';
+ switch(change) {
+  case "it":
+    bandieraDaAggiungere = '<img src="img/it.png" alt="">'
+    break;
+  case "en":
+    bandieraDaAggiungere = '<img src="img/en.png" alt="">'
+    break;
+  case "es":
+    bandieraDaAggiungere = '<img src="img/spa.png" alt="">'
+    break;
+  case "usa":
+    bandieraDaAggiungere = '<img src="img/usa.png" alt="">'
+    break;
+  case "de":
+    bandieraDaAggiungere = '<img src="img/de.png" alt="">'
+    break;
+  case "fr":
+    bandieraDaAggiungere = '<img src="img/fr.png" alt="">'
+    break;
+}
+return bandieraDaAggiungere;
+}
+
+
 
 //funzione generale jquery
 $( document ).ready(function() {
