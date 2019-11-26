@@ -29,9 +29,8 @@ function ricercaFilm(stampa) {
      titolo: film.results[i].title,
      titoloOriginale:film.results[i].original_title,
      lingua:film.results[i].original_language,
-     voto:film.results[i].vote_average,
-     stars: generaStelle(voto)};
-     console.log(voto);
+     voto:film.results[i].vote_average};
+     //stars: generaStelle(voto)};
     // creo una variabile per stampare in pagina il tutto
     var stampaDati = trasferisciDati(contenitoreOggetti);
     // appendo la copia dell'oggetto per l'output in pagina
