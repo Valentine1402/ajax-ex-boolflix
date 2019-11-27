@@ -80,8 +80,9 @@ function ricercaSerieTv(stampa) {
      lingua:flagGenerator(film.results[i].original_language),
      voto:film.results[i].vote_average,
      stars: generaStelle(film.results[i].vote_average)};
-    // creo una variabile per stampare in pagina il tutto
-    var stampaDati = trasferisciDati(contenitoreOggetti);
+     // creo una variabile per stampare in pagina il tutto
+     var stampaDati = trasferisciDati(contenitoreOggetti);
+
     // appendo la copia dell'oggetto per l'output in pagina
     $(".tv").append(stampaDati);
    }
@@ -129,11 +130,12 @@ return "<img src='img/pirate.png' alt=''>";
 $( document ).ready(function() {
  ricercaFilm("horror");
  ricercaSerieTv("tv");
- //$('.film').click(function(){
- $(document).on('mouseenter mouseleave', '.film', function() {
-  var foto=$(this).find(".foto-copertina").attr('src');
-  console.log(foto);
-  $('.anteprima img').attr('src',foto);
 
+ $(document).on('mouseenter', '.film', function() {
+  var foto=$(this).find(".foto-copertina").attr('src');
+  $('.ms-didascalia').css('visibility' , 'visible');
+  $('.anteprima img').attr('src',foto);
+  //var nome=$(this).find("ms-didascalia"); to ask
+  //$('.didascalia').text(nome); to ask
  });
 });

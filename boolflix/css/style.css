@@ -11,10 +11,6 @@ body {
  background-color: #220f19;
 }
 
-.general{
- margin: 30px;
-}
-
 /* navbar */
 header{
  height: 80px;
@@ -22,10 +18,12 @@ header{
  background-color: black;
 }
 
+/* logo booflix */
 header img {
  height: 48px;
 }
 
+/* navbar */
 .nav{
  display: flex;
  justify-content: space-between;
@@ -33,13 +31,14 @@ header img {
  margin-right: 40px;
 }
 
-/* searchbar */
+/* input searchbar */
 .search{
  margin-top: 8px;
 }
+
 input{
-height: 28px;
-border-radius: 3px;
+ height: 28px;
+ border-radius: 3px;
 }
 
 button{
@@ -51,19 +50,17 @@ button{
 
 /* main */
 .anteprima{
-height: 500px;
-width: 800px;
-border: 1px solid white;
-margin-left: 300px;
+ height: 500px;
+ width: 800px;
+ border: 1px solid white;
+ margin-left: 300px;
+ margin-top: 30px;
+ display: flex;
+ flex-direction: row;
 }
 
-body > div > div.anteprima > img{
-max-height: 100%;
-width: auto;
-}
-
-.tv{
- margin: 50px;
+.anteprima:hover{
+ filter: brightness(1.5);
 }
 
 .main{
@@ -74,10 +71,33 @@ width: auto;
  flex-wrap: wrap;
 }
 
+.didascalia{
+ display: flex;
+ flex-direction: column;
+ color: white;
+ margin: 50px;
+}
+
+.ms-didascalia{
+ position: absolute;
+ top: 30%;
+ left: 50%;
+ transform: translate(-50% ,-50%);
+ visibility: hidden;
+ width: 183px;
+}
+
+/* Immagine di copertina di anteprima */
+body > div > div.anteprima > img{
+ max-height: 100%;
+ width: auto;
+}
+
 #selezione-film, #selezione-tv{
  color: white;
  font-size: 50px;
  font-weight: bold;
+ margin: 30px;
 }
 
 /* box film */
@@ -91,11 +111,18 @@ width: auto;
  margin: 20px 20px;
  height: 460px;
  text-align: center;
+ position: relative;
 }
 
 .foto-copertina{
  max-width: 130%;
 }
+
+.foto-copertina:hover{
+ opacity: 0.2;
+ border: 1px solid red;
+}
+
 
 /* titoli film */
 h3 {
@@ -112,6 +139,7 @@ h3 {
 .my_Voto{
  color: white;
 }
+
 /* stelline */
 .my_star{
  color: #bab64c;
@@ -119,6 +147,6 @@ h3 {
 }
 
 /* bandiera */
-.film > span:nth-child(4) > img{
+span.original-lang > img{
  max-width:15%;
 }

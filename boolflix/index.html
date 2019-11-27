@@ -32,22 +32,30 @@
    <div class="general">
     <div class="anteprima">
      <img src=""/>
+     <div class="didascalia">
+      
+     </div>
     </div>
     <span id="selezione-film">Film</span>
     <div class="main movies"></div>
     <span id="selezione-tv">SerieTv</span>
-    <div class="main  tv"></div>
+    <div class="main tv"></div>
    </div>
+<div class="">
 
+</div>
     <!-- template invisibile per stampa -->
    <script id="hb-template" type= "text/x-handlebars-template">
     <div class="film">
      <img class="foto-copertina" src="https://image.tmdb.org/t/p/w780{{poster}}" alt="">
-     <h3>{{titolo}}</h3>
-     <span class="original-title">{{titoloOriginale}}</span>
-     <span>{{{lingua}}}</span><span id="language">{{{bandiera}}}</span>
-     <span class="my_Voto">{{voto}}</span>
-     <span class="my_star">{{{stars}}}</span>
+     <div class="ms-didascalia">
+      <h3 class="titolo-1">{{titolo}}</h3>
+      <span class="original-title">{{titoloOriginale}}</span>
+      <span class="original-lang">{{{lingua}}}</span> <br/>
+      <span id="language">{{{bandiera}}}</span>
+      <span class="my_Voto">{{voto}}</span>
+      <span class="my_star">{{{stars}}}</span>
+     </div>
     </div>
    </script>
   <!-- jquery -->
