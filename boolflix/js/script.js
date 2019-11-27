@@ -64,7 +64,7 @@ function ricercaSerieTv(stampa) {
    api_key: "7aa608e30656e9fec4f2ce271a198fc4",
    language: "it-IT",
    query: stampa
-  },
+ },
   success: function (film) {
    //creo una variabile in cui faccio un clone per la successiva stampa
    var primaBozza = $("#hb-template").html();
@@ -84,9 +84,8 @@ function ricercaSerieTv(stampa) {
      var stampaDati = trasferisciDati(contenitoreOggetti);
 
     // appendo la copia dell'oggetto per l'output in pagina
-    $(".tv").append(stampaDati);
-   }
-
+   $(".tv").append(stampaDati);
+  }
   //azzero la searchbar dopo che l'utente ha cliccato
   $(".search-bar").val("");
   },
@@ -123,7 +122,7 @@ function flagGenerator(lang) {
   if (bandieraDaAggiungere.includes(lang)) {
    return "<img src='img/"+ lang + ".png'>";
   }
-return "<img src='img/pirate.png' alt=''>";
+ return "<img src='img/pirate.png' alt=''>";
 };
 
 //funzione generale jquery

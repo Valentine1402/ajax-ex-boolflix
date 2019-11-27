@@ -49,20 +49,6 @@ button{
 }
 
 /* main */
-.anteprima{
- height: 500px;
- width: 800px;
- border: 1px solid white;
- margin-left: 300px;
- margin-top: 30px;
- display: flex;
- flex-direction: row;
-}
-
-.anteprima:hover{
- filter: brightness(1.5);
-}
-
 .main{
  display: flex;
  justify-content: center;
@@ -71,33 +57,11 @@ button{
  flex-wrap: wrap;
 }
 
-.didascalia{
- display: flex;
- flex-direction: column;
- color: white;
- margin: 50px;
-}
-
-.ms-didascalia{
- position: absolute;
- top: 30%;
- left: 50%;
- transform: translate(-50% ,-50%);
- visibility: hidden;
- width: 183px;
-}
-
-/* Immagine di copertina di anteprima */
-body > div > div.anteprima > img{
- max-height: 100%;
- width: auto;
-}
-
 #selezione-film, #selezione-tv{
  color: white;
  font-size: 50px;
  font-weight: bold;
- margin: 30px;
+ margin: 20px;
 }
 
 /* box film */
@@ -123,6 +87,43 @@ body > div > div.anteprima > img{
  border: 1px solid red;
 }
 
+/* didascalia */
+.didascalia{
+ display: flex;
+ flex-direction: column;
+ color: white;
+ margin: 50px;
+}
+
+.ms-didascalia{
+ position: absolute;
+ top: 30%;
+ left: 50%;
+ transform: translate(-50% ,-50%);
+ visibility: hidden;
+ width: 183px;
+}
+
+/* anteprima main superiore */
+.anteprima{
+ height: 500px;
+ width: 800px;
+ border: 1px solid white;
+ margin-left: 300px;
+ margin-top: 30px;
+ display: flex;
+ flex-direction: row;
+}
+
+.anteprima:hover{
+ filter: brightness(1.5);
+}
+
+/* Immagine di copertina di anteprima */
+body > div > div.anteprima > img{
+ max-height: 100%;
+ width: auto;
+}
 
 /* titoli film */
 h3 {
