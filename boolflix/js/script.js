@@ -44,6 +44,16 @@ function ricercaFilm(stampa) {
     // appendo la copia dell'oggetto per l'output in pagina
     $(".movies").append(stampaDati);
    }
+   // Funzione che mi permette di vedere l'anteprima dell'immagine del film selezionato
+   $(document).on('mouseenter mouseleave', '.film .tv', function() {
+    var anteprimaClone = $("#hb-template-ante").html();
+    var trasferisciDatiAnteprima = Handlebars.compile(anteprimaClone);
+    var contenitoreAnteprima = {poster:film.results[i].poster_path};
+    console.log(contenitoreAnteprima);
+    var stampaDatiAnteprima = trasferisciDati(contenitoreAnteprima);
+    $(".anteprima").append(stampaDatiAnteprima);
+    console.log(stampaDatiAnteprima);
+   });
   //azzero la searchbar dopo che l'utente ha cliccato
   $(".search-bar").val("");
   },
@@ -83,16 +93,7 @@ function ricercaSerieTv(stampa) {
     // appendo la copia dell'oggetto per l'output in pagina
     $(".tv").append(stampaDati);
    }
-   // Funzione che mi permette di vedere l'anteprima dell'immagine del film selezionato
-   $(document).on('mouseenter mouseleave', '.film', function() {
-    var anteprimaClone = $("#hb-template-poster").html();
-    var trasferisciDatiAnteprima = Handlebars.compile(anteprimaClone);
-    var contenitoreAnteprima = {poster:film.results[i].poster_path};
-    var stampaDatiAnteprima = trasferisciDati(contenitoreAnteprima);
-    $(".anteprima").append(stampaDatiAnteprima);
-    console.log(stampaDatiAnteprima);
-    return
-   })
+
   //azzero la searchbar dopo che l'utente ha cliccato
   $(".search-bar").val("");
   },
@@ -122,10 +123,8 @@ function generaStelle(voto) {
  var valutazione = '';
  for (var i = 1; i < 5; i++) {
   if (i < voto) {
-    console.log(i, "stella piena");
     valutazione += '<i class="fas fa-star"></i>';
   } else {
-    console.log(i, "stella vuota");
     valutazione += '<i class="far fa-star"></i>';
   }
  }
