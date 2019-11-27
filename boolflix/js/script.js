@@ -11,6 +11,8 @@ Trasformiamo il numero da 1 a 10 decimale in un numero intero da 1 a 5, così da
 Arrotondiamo sempre per eccesso all’unità successiva, non gestiamo icone mezze piene (o mezze vuote :P)
 Trasformiamo poi la stringa statica della lingua in una vera e propria bandiera della nazione corrispondente, gestendo il caso in cui non abbiamo la bandiera della nazione ritornata dall’API (le flag non ci sono in FontAwesome).
 Allarghiamo poi la ricerca anche alle serie tv. Con la stessa azione di ricerca dovremo prendere sia i film che corrispondono alla query, sia le serie tv, stando attenti ad avere alla fine dei valori simili
+MILESTONE 3:
+In questa milestone aggiungiamo la copertina del film o della serie al nostro elenco.
 
 */
 
@@ -102,58 +104,33 @@ $("#go").click(function(){
  ricercaSerieTv(inPagina);
 });
 
-// Funzione per arrotondare le stelle
-function arrotonda(stelline) {
- return stelle = (Math.round(stelline / 2));
-};
+
 
 // Funzione per generare le stelle
-function generaStelle(voto) {
- // stampa stelle
- var valutazione = '';
- for (var i = 1; i < 5; i++) {
-  if (i < voto) {
-    valutazione += '<i class="fas fa-star"></i>';
-  } else {
-    valutazione += '<i class="far fa-star"></i>';
-  }
+function generaStelle(rating) {
+ rating = Math.floor(rating / 2);
+ var res = '';
+ for (var i = 1; i <= 5; i++) {
+  res += (i <= rating )
+   ?'<i class="fas fa-star"></i>'
+   :'<i class="far fa-star"></i>';
  }
- return valutazione;
+ return res;
 };
 
 //funzione per aggiungere le badiere
-function flagGenerator(change) {
- var bandieraDaAggiungere = '';
- switch(change) {
-  case "it":
-    bandieraDaAggiungere = '<img src="img/it.png" alt="">'
-    break;
-  case "en":
-    bandieraDaAggiungere = '<img src="img/en.png" alt="">'
-    break;
-  case "es":
-    bandieraDaAggiungere = '<img src="img/spa.png" alt="">'
-    break;
-  case "usa":
-    bandieraDaAggiungere = '<img src="img/usa.png" alt="">'
-    break;
-  case "de":
-    bandieraDaAggiungere = '<img src="img/de.png" alt="">'
-    break;
-  case "fr":
-    bandieraDaAggiungere = '<img src="img/fr.png" alt="">'
-    break;
-}
-return bandieraDaAggiungere;
-}
-
-
+function flagGenerator(lang) {
+ var bandieraDaAggiungere = ["it","en","spa","usa","de","fr"];
+  if (bandieraDaAggiungere.includes(lang)) {
+   return "<img src='img/"+ lang + ".png'>";
+  }
+return "<img src='img/pirate.png' alt=''>";
+};
 
 //funzione generale jquery
 $( document ).ready(function() {
  ricercaFilm("horror");
  ricercaSerieTv("tv");
-
  //$('.film').click(function(){
  $(document).on('mouseenter mouseleave', '.film', function() {
   var foto=$(this).find(".foto-copertina").attr('src');
