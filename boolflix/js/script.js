@@ -104,8 +104,6 @@ $("#go").click(function(){
  ricercaSerieTv(inPagina);
 });
 
-
-
 // Funzione per generare le stelle
 function generaStelle(rating) {
  rating = Math.floor(rating / 2);
