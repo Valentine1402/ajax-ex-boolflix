@@ -12,8 +12,9 @@ body {
 }
 
 .general{
- padding: 30px;
+ margin: 30px;
 }
+
 /* navbar */
 header{
  height: 80px;
@@ -49,6 +50,13 @@ button{
 }
 
 /* main */
+.anteprima{
+height: 400px;
+width: 800px;
+border: 1px solid white;
+margin-left: 300px;
+}
+
 .tv{
  margin: 50px;
 }

@@ -148,6 +148,12 @@ function flagGenerator(change) {
 return bandieraDaAggiungere;
 }
 
+// Funzione che mi permette di vedere l'anteprima dell'immagine del film selezionato
+$('.film').click(function(){
+  var foto=$(this).find(".img").attr('src');
+  $('.anteprima img').attr('src',foto);
+
+});
 
 //funzione generale jquery
 $( document ).ready(function() {
