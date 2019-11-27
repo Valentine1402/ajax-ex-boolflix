@@ -44,16 +44,6 @@ function ricercaFilm(stampa) {
     // appendo la copia dell'oggetto per l'output in pagina
     $(".movies").append(stampaDati);
    }
-   // Funzione che mi permette di vedere l'anteprima dell'immagine del film selezionato
-   $(document).on('mouseenter mouseleave', '.film .tv', function() {
-    var anteprimaClone = $("#hb-template-ante").html();
-    var trasferisciDatiAnteprima = Handlebars.compile(anteprimaClone);
-    var contenitoreAnteprima = {poster:film.results[i].poster_path};
-    console.log(contenitoreAnteprima);
-    var stampaDatiAnteprima = trasferisciDati(contenitoreAnteprima);
-    $(".anteprima").append(stampaDatiAnteprima);
-    console.log(stampaDatiAnteprima);
-   });
   //azzero la searchbar dopo che l'utente ha cliccato
   $(".search-bar").val("");
   },
@@ -164,6 +154,11 @@ $( document ).ready(function() {
  ricercaFilm("horror");
  ricercaSerieTv("tv");
 
+ //$('.film').click(function(){
+ $(document).on('mouseenter mouseleave', '.film', function() {
+  var foto=$(this).find(".foto-copertina").attr('src');
+  console.log(foto);
+  $('.anteprima img').attr('src',foto);
 
-
+ });
 });

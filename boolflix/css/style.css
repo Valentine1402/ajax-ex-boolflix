@@ -51,10 +51,15 @@ button{
 
 /* main */
 .anteprima{
-height: 400px;
+height: 500px;
 width: 800px;
 border: 1px solid white;
 margin-left: 300px;
+}
+
+body > div > div.anteprima > img{
+max-height: 100%;
+width: auto;
 }
 
 .tv{
