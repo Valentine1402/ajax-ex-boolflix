@@ -83,6 +83,16 @@ function ricercaSerieTv(stampa) {
     // appendo la copia dell'oggetto per l'output in pagina
     $(".tv").append(stampaDati);
    }
+   // Funzione che mi permette di vedere l'anteprima dell'immagine del film selezionato
+   $(document).on('mouseenter mouseleave', '.film', function() {
+    var anteprimaClone = $("#hb-template-poster").html();
+    var trasferisciDatiAnteprima = Handlebars.compile(anteprimaClone);
+    var contenitoreAnteprima = {poster:film.results[i].poster_path};
+    var stampaDatiAnteprima = trasferisciDati(contenitoreAnteprima);
+    $(".anteprima").append(stampaDatiAnteprima);
+    console.log(stampaDatiAnteprima);
+    return
+   })
   //azzero la searchbar dopo che l'utente ha cliccato
   $(".search-bar").val("");
   },
@@ -148,15 +158,13 @@ function flagGenerator(change) {
 return bandieraDaAggiungere;
 }
 
-// Funzione che mi permette di vedere l'anteprima dell'immagine del film selezionato
-$('.film').click(function(){
-  var foto=$(this).find(".img").attr('src');
-  $('.anteprima img').attr('src',foto);
 
-});
 
 //funzione generale jquery
 $( document ).ready(function() {
  ricercaFilm("horror");
  ricercaSerieTv("tv");
+
+
+
 });
