@@ -42,7 +42,7 @@ function ricercaFilm(stampa) {
     // creo una variabile per stampare in pagina il tutto
     var stampaDati = trasferisciDati(contenitoreOggetti);
     // appendo la copia dell'oggetto per l'output in pagina
-    $(".main").append(stampaDati);
+    $(".movies").append(stampaDati);
    }
   //azzero la searchbar dopo che l'utente ha cliccato
   $(".search-bar").val("");
@@ -73,15 +73,15 @@ function ricercaSerieTv(stampa) {
     // creo una variabile contenente un oggetto dove inserirò i dati recuperati da Ajax
     var contenitoreOggetti = {
      poster:film.results[i].poster_path,
-     titolo: film.results[i].title,
-     titoloOriginale:film.results[i].original_title,
+     titolo: film.results[i].name,
+     titoloOriginale:film.results[i].original_name,
      lingua:flagGenerator(film.results[i].original_language),
      voto:film.results[i].vote_average,
      stars: generaStelle(film.results[i].vote_average)};
     // creo una variabile per stampare in pagina il tutto
     var stampaDati = trasferisciDati(contenitoreOggetti);
     // appendo la copia dell'oggetto per l'output in pagina
-    $(".main").append(stampaDati);
+    $(".tv").append(stampaDati);
    }
   //azzero la searchbar dopo che l'utente ha cliccato
   $(".search-bar").val("");
@@ -98,6 +98,7 @@ $("#go").click(function(){
  $(".main").html("");
  var inPagina = $(".search-bar").val();
  ricercaFilm(inPagina);
+ ricercaSerieTv(inPagina);
 });
 
 // Funzione per arrotondare le stelle
