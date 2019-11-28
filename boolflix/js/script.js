@@ -132,16 +132,19 @@ $( document ).ready(function() {
  ricercaSerieTv("tv");
 
  $(document).on('mouseenter', '.film', function() {
+  //al passaggio del mouse sulla miniatura si vede la copertina in anteprima
   var foto=$(this).find(".foto-copertina").attr('src');
   $('.anteprima img').attr('src',foto);
+  //al passaggio del mouse sulla miniatura si vedono le info del film e la copertina della miniatura si schiarisce (ultima parte in css)
   var miniatura=$(this).find('.ms-didascalia');
   $('.ms-didascalia').css('visibility' , 'visible');
-
+  //al passaggio del mouse sulla miniatura dovrebbero vedersi le info in anteprima
   var nome=$(this).find("ms-didascalia").html();
   $('.didascalia').html(nome);
  });
 
  $(document).on('mouseleave', '.film', function(){
+  //alla fuoriuscita del mouse spariscono le info e torna l'immagine 
   var miniatura=$(this).find('.ms-didascalia');
   $('.ms-didascalia').css('visibility' , 'hidden');
  });
