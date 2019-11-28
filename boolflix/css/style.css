@@ -119,6 +119,7 @@ button{
  margin-top: 30px;
  display: flex;
  flex-direction: row;
+ display: none;
 }
 
 .anteprima:hover{

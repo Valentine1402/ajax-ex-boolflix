@@ -20,6 +20,7 @@ $( document ).ready(function() {
   $(miniatura).css('visibility' , 'visible');
   var nome=$(this).find(".ms-didascalia").html();
   $('.didascalia').html(nome);
+  $(".anteprima").css("display","flex");
  });
 
  $(document).on('mouseleave', '.film', function(){
