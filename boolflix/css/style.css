@@ -91,8 +91,11 @@ button{
 .didascalia{
  display: flex;
  flex-direction: column;
+ justify-content: flex-end;
  color: white;
- margin: 50px;
+ height: 100%;
+ width: 100%;
+ margin: 40px;
 }
 
 .ms-didascalia{

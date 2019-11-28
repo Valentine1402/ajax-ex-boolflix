@@ -13,7 +13,8 @@ Trasformiamo poi la stringa statica della lingua in una vera e propria bandiera 
 Allarghiamo poi la ricerca anche alle serie tv. Con la stessa azione di ricerca dovremo prendere sia i film che corrispondono alla query, sia le serie tv, stando attenti ad avere alla fine dei valori simili
 MILESTONE 3:
 In questa milestone aggiungiamo la copertina del film o della serie al nostro elenco.
-
+Milestone 4:
+Trasformiamo quello che abbiamo fatto fino ad ora in una vera e propria webapp, creando un layout completo simil-Netflix:
 */
 
 // eseguo chiamata api per la ricerca film
@@ -132,9 +133,16 @@ $( document ).ready(function() {
 
  $(document).on('mouseenter', '.film', function() {
   var foto=$(this).find(".foto-copertina").attr('src');
-  $('.ms-didascalia').css('visibility' , 'visible');
   $('.anteprima img').attr('src',foto);
-  //var nome=$(this).find("ms-didascalia"); to ask
-  //$('.didascalia').text(nome); to ask
+  var miniatura=$(this).find('.ms-didascalia');
+  $('.ms-didascalia').css('visibility' , 'visible');
+
+  var nome=$(this).find("ms-didascalia").html();
+  $('.didascalia').html(nome);
+ });
+
+ $(document).on('mouseleave', '.film', function(){
+  var miniatura=$(this).find('.ms-didascalia');
+  $('.ms-didascalia').css('visibility' , 'hidden');
  });
 });
