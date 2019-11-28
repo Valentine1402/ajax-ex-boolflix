@@ -32,7 +32,7 @@ header img {
 }
 
 /* input searchbar */
-.search{
+.cerca{
  margin-top: 8px;
 }
 
@@ -73,13 +73,14 @@ button{
  flex-basis: 200px;
  padding: 15px;
  margin: 20px 20px;
- height: 460px;
+ height: 360px;
  text-align: center;
  position: relative;
 }
 
 .foto-copertina{
  max-width: 130%;
+ max-height: 130%;
 }
 
 .foto-copertina:hover{
@@ -92,18 +93,21 @@ button{
  display: flex;
  flex-direction: column;
  color: white;
- height: 100%;
  width: 100%;
  margin: 40px;
+ overflow-y:auto;
 }
 
 .ms-didascalia{
  position: absolute;
- top: 30%;
+ top: 50%;
  left: 50%;
  transform: translate(-50% ,-50%);
  visibility: hidden;
- width: 183px;
+ width: 219px;
+ height: 180px;
+ color: white;
+ overflow-y: auto;
 }
 
 /* anteprima main superiore */
@@ -132,14 +136,6 @@ h3 {
  margin: 5px 0;
  font-size: 18px;
  text-transform: uppercase;
- color: white;
-}
-
-.original-title{
- display: none;
-}
-
-.my_Voto{
  color: white;
 }
 

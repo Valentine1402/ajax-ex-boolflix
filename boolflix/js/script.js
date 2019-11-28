@@ -1,151 +1,127 @@
 //ESERCIZIO BOOLFLIX:
-//milestone 1
-/*Creare un layout base con una searchbar (una input e un button) in cui possiamo scrivere completamente o parzialmente il nome di un film. Possiamo, cliccando il  bottone, cercare sull’API tutti i film che contengono ciò che ha scritto l’utente.
-Vogliamo dopo la risposta dell’API visualizzare a schermo i seguenti valori per ogni film trovato:
-Titolo
-Titolo Originale
-Lingua
-Voto
-MILESTONE 2 :
-Trasformiamo il numero da 1 a 10 decimale in un numero intero da 1 a 5, così da permetterci di stampare a schermo un numero di stelle piene che vanno da 1 a 5, lasciando le restanti vuote (troviamo le icone in FontAwesome).
-Arrotondiamo sempre per eccesso all’unità successiva, non gestiamo icone mezze piene (o mezze vuote :P)
-Trasformiamo poi la stringa statica della lingua in una vera e propria bandiera della nazione corrispondente, gestendo il caso in cui non abbiamo la bandiera della nazione ritornata dall’API (le flag non ci sono in FontAwesome).
-Allarghiamo poi la ricerca anche alle serie tv. Con la stessa azione di ricerca dovremo prendere sia i film che corrispondono alla query, sia le serie tv, stando attenti ad avere alla fine dei valori simili
-MILESTONE 3:
-In questa milestone aggiungiamo la copertina del film o della serie al nostro elenco.
-Milestone 4:
-Trasformiamo quello che abbiamo fatto fino ad ora in una vera e propria webapp, creando un layout completo simil-Netflix:
+/*In questo esercizio iniziamo a replicare la logica che sta dietro a tantissimi siti che permettono la visione di film e telefilm.
+Per fare questo, come fanno siti molto più rinomati, utilizzeremo un API che ci permette di avere un insieme di risultati congrui alla nostra ricerca.
+Trasformiamo quello che abbiamo fatto fino ad ora in una vera e propria webapp, creando un layout completo simil-Netflix.
+Milestone 1 v
+Milestone 2 v
+Milestone 3 v
+Milestone 4 v
 */
-
-// eseguo chiamata api per la ricerca film
-function ricercaFilm(stampa) {
- $.ajax({
-  url:"https://api.themoviedb.org/3/search/movie",
-  method: "GET",
-  data: {
-   api_key: "7aa608e30656e9fec4f2ce271a198fc4",
-   language: "it-IT",
-   query: stampa
-  },
-  success: function (film) {
-   //creo una variabile in cui faccio un clone per la successiva stampa
-   var primaBozza = $("#hb-template").html();
-   // creo una variabile in cui trasferisco i dati da qui all'html
-   var trasferisciDati = Handlebars.compile(primaBozza);
-   //utilizzo il ciclo for per attraversare gli oggetti
-   for (var i = 0; i < film.results.length; i++) {
-    // creo una variabile contenente un oggetto dove inserirò i dati recuperati da Ajax
-    var contenitoreOggetti = {
-     poster:film.results[i].poster_path,
-     titolo: film.results[i].title,
-     titoloOriginale:film.results[i].original_title,
-     lingua:flagGenerator(film.results[i].original_language),
-     voto:film.results[i].vote_average,
-     stars: generaStelle(film.results[i].vote_average)};
-    // creo una variabile per stampare in pagina il tutto
-    var stampaDati = trasferisciDati(contenitoreOggetti);
-    // appendo la copia dell'oggetto per l'output in pagina
-    $(".movies").append(stampaDati);
-   }
-  //azzero la searchbar dopo che l'utente ha cliccato
-  $(".search-bar").val("");
-  },
-  error : function () {
-  alert("Errore");
- }
- });
-}
-
-// eseguo chiamata api per la ricerca serieTv
-function ricercaSerieTv(stampa) {
- $.ajax({
-  url:"https://api.themoviedb.org/3/search/tv",
-  method: "GET",
-  data: {
-   api_key: "7aa608e30656e9fec4f2ce271a198fc4",
-   language: "it-IT",
-   query: stampa
- },
-  success: function (film) {
-   //creo una variabile in cui faccio un clone per la successiva stampa
-   var primaBozza = $("#hb-template").html();
-   // creo una variabile in cui trasferisco i dati da qui all'html
-   var trasferisciDati = Handlebars.compile(primaBozza);
-   //utilizzo il ciclo for per attraversare gli oggetti
-   for (var i = 0; i < film.results.length; i++) {
-    // creo una variabile contenente un oggetto dove inserirò i dati recuperati da Ajax
-    var contenitoreOggetti = {
-     poster:film.results[i].poster_path,
-     titolo: film.results[i].name,
-     titoloOriginale:film.results[i].original_name,
-     lingua:flagGenerator(film.results[i].original_language),
-     voto:film.results[i].vote_average,
-     stars: generaStelle(film.results[i].vote_average)};
-     // creo una variabile per stampare in pagina il tutto
-     var stampaDati = trasferisciDati(contenitoreOggetti);
-
-    // appendo la copia dell'oggetto per l'output in pagina
-   $(".tv").append(stampaDati);
-  }
-  //azzero la searchbar dopo che l'utente ha cliccato
-  $(".search-bar").val("");
-  },
-  error : function () {
-  alert("Errore");
- }
- });
-}
-
-
-//funzione legata al bottone per cercare il film
-$("#go").click(function(){
- $(".main").html("");
- var inPagina = $(".search-bar").val();
- ricercaFilm(inPagina);
- ricercaSerieTv(inPagina);
-});
-
-// Funzione per generare le stelle
-function generaStelle(rating) {
- rating = Math.floor(rating / 2);
- var res = '';
- for (var i = 1; i <= 5; i++) {
-  res += (i <= rating )
-   ?'<i class="fas fa-star"></i>'
-   :'<i class="far fa-star"></i>';
- }
- return res;
-};
-
-//funzione per aggiungere le badiere
-function flagGenerator(lang) {
- var bandieraDaAggiungere = ["it","en","spa","usa","de","fr"];
-  if (bandieraDaAggiungere.includes(lang)) {
-   return "<img src='img/"+ lang + ".png'>";
-  }
- return "<img src='img/pirate.png' alt=''>";
-};
 
 //funzione generale jquery
 $( document ).ready(function() {
- ricercaFilm("horror");
- ricercaSerieTv("tv");
+
+ $("#go").click(search);
 
  $(document).on('mouseenter', '.film', function() {
-  //al passaggio del mouse sulla miniatura si vede la copertina in anteprima
   var foto=$(this).find(".foto-copertina").attr('src');
   $('.anteprima img').attr('src',foto);
-  //al passaggio del mouse sulla miniatura si vedono le info del film e la copertina della miniatura si schiarisce (ultima parte in css)
   var miniatura=$(this).find('.ms-didascalia');
   $(miniatura).css('visibility' , 'visible');
-  //al passaggio del mouse sulla miniatura compaiono le info in anteprima
   var nome=$(this).find(".ms-didascalia").html();
   $('.didascalia').html(nome);
  });
 
  $(document).on('mouseleave', '.film', function(){
-  //alla fuoriuscita del mouse spariscono le info e torna l'immagine
   var miniatura=$(this).find('.ms-didascalia');
   $('.ms-didascalia').css('visibility' , 'hidden');
  });
 });
+
+function reset() {
+ $(".main").html('');
+}
+
+//function cerca
+function search() {
+ reset();
+ var urlMovie = 'https://api.themoviedb.org/3/search/movie';
+ var urlTv = 'https://api.themoviedb.org/3/search/tv';
+ var q = $(".query").val();
+ getData(urlMovie, q, 'movie');
+	getData(urlTv, q, 'tv');
+}
+
+//chiamata api
+function getData(url, query, type ) {
+ var apiKey = '7aa608e30656e9fec4f2ce271a198fc4';
+ $.ajax({
+   url: url,
+   method: "GET",
+   data: {
+    api_key: apiKey,
+    query: query,
+    language: "it-IT"
+   },
+   success: function(data) {
+    var elements = data.results;
+    print(type, elements);
+    console.log(elements);
+   },
+   error: function(err) {
+    alert("Errore", err);
+  }
+ });
+}
+
+//funzione per ciclare e stampare elementi
+function print(type, elems) {
+
+ var targetMovie = $('body > div > div.main.movies');
+ var targetTv = $('body > div > div.main.tv');
+ var source = $("#hb-template").html();
+	var template = Handlebars.compile(source);
+
+ for (var i = 0; i < elems.length; i++) {
+  var elem = elems[i];
+  var title = (type == "movie" ? elem.title : elem.name );
+  var originalTitle = (type == "movie" ? elem.original_title : elem.original_name);
+  var poster = '';
+   if (elem.poster_path) {
+    poster = 'https://image.tmdb.org/t/p/w342' + elem.poster_path;
+   }else {
+     append("<img src='img/pirate.png' alt=''>");
+   }
+
+   var context = {
+    title: title,
+    originalTitle: originalTitle,
+    lan: flagGenerator(elem.original_language),
+    stars: generaStelle(elem.vote_average),
+    vote: elem.vote_average,
+    poster: poster,
+    type: type,
+    trama: elem.overview
+   };
+
+   var html = template(context);
+    if (type == "movie")
+     targetMovie.append(html);
+    else
+     targetTv.append(html);
+
+     $(".query").val('');
+ }
+
+
+ // Funzione per generare le stelle
+ function generaStelle(rating) {
+  rating = Math.floor(rating / 2);
+  var res = '';
+  for (var i = 1; i <= 5; i++) {
+   res += (i <= rating )
+    ?'<i class="fas fa-star"></i>'
+    :'<i class="far fa-star"></i>';
+  }
+  return res;
+ }
+
+ //funzione per aggiungere le badiere
+ function flagGenerator(lang) {
+  var bandieraDaAggiungere = ["it","en","spa","usa","de","fr", "ja", "ar"];
+   if (bandieraDaAggiungere.includes(lang)) {
+    return "<img src='img/"+ lang + ".png'>";
+   }
+  return "<img src='img/euro.png' alt=''>";
+ };
+};
