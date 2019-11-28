@@ -91,7 +91,6 @@ button{
 .didascalia{
  display: flex;
  flex-direction: column;
- justify-content: flex-end;
  color: white;
  height: 100%;
  width: 100%;
