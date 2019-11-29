@@ -8,6 +8,7 @@
 
 body {
  min-height: 100vh;
+ position: relative;
  background-color: #220f19;
 }
 
@@ -48,6 +49,34 @@ button{
  color: white;
 }
 
+.general{
+
+}
+.invisible{
+position: absolute;
+top: 450px;
+left: 350px;
+transform: translate(-50%, -50%);
+font-size: 30px;
+line-height:90px;
+font-weight: bold;
+color: white;
+}
+body > div > div.invisible > p:nth-child(1){
+ font-size: 70px;
+ font-weight: bold;
+}
+
+body > div > img{
+ opacity: 0.5;
+ max-width: 1440px;
+}
+
+.but-anteprima{
+ font-size: 26px;
+ cursor: pointer;
+}
+
 /* main */
 .main{
  display: flex;
@@ -55,6 +84,8 @@ button{
  align-items: center;
  margin: 50px;
  flex-wrap: wrap;
+ max-height: 400px;
+ overflow-x:auto;
 }
 
 #selezione-film, #selezione-tv{
@@ -62,6 +93,7 @@ button{
  font-size: 50px;
  font-weight: bold;
  margin: 20px;
+ display: none;
 }
 
 /* box film */
@@ -108,6 +140,9 @@ button{
  height: 180px;
  color: white;
  overflow-y: auto;
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
 }
 
 /* anteprima main superiore */

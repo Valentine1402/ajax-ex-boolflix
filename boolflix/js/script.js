@@ -11,6 +11,13 @@ Milestone 4 v
 //funzione generale jquery
 $( document ).ready(function() {
 
+ $(".but-anteprima, .query").on({
+  click: function(){
+   $("body").css("background-color","#220f19");
+   $(".invisible, body > div > img").css("display","none");
+   $(".film").show();
+  }
+ });
  $("#go").click(search);
 
  $(document).on('mouseenter', '.film', function() {
@@ -21,6 +28,8 @@ $( document ).ready(function() {
   var nome=$(this).find(".ms-didascalia").html();
   $('.didascalia').html(nome);
   $(".anteprima").css("display","flex");
+  $("#selezione-film, #selezione-tv").show()
+
  });
 
  $(document).on('mouseleave', '.film', function(){
@@ -81,7 +90,7 @@ function print(type, elems) {
    if (elem.poster_path) {
     poster = 'https://image.tmdb.org/t/p/w342' + elem.poster_path;
    }else {
-     append("<img src='img/pirate.png' alt=''>");
+     '<img src="img/pirate.png">'
    }
 
    var context = {
@@ -102,6 +111,7 @@ function print(type, elems) {
      targetTv.append(html);
 
      $(".query").val('');
+
  }
 
 
