@@ -49,9 +49,6 @@ button{
  color: white;
 }
 
-.general{
-
-}
 .invisible{
 position: absolute;
 top: 450px;
@@ -62,6 +59,7 @@ line-height:90px;
 font-weight: bold;
 color: white;
 }
+
 body > div > div.invisible > p:nth-child(1){
  font-size: 70px;
  font-weight: bold;

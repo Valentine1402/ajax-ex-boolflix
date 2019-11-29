@@ -18,6 +18,7 @@ $( document ).ready(function() {
    $(".film").show();
   }
  });
+ 
  $("#go").click(search);
 
  $(document).on('mouseenter', '.film', function() {
@@ -29,7 +30,6 @@ $( document ).ready(function() {
   $('.didascalia').html(nome);
   $(".anteprima").css("display","flex");
   $("#selezione-film, #selezione-tv").show()
-
  });
 
  $(document).on('mouseleave', '.film', function(){
@@ -40,7 +40,7 @@ $( document ).ready(function() {
 
 function reset() {
  $(".main").html('');
-}
+};
 
 //function cerca
 function search() {
@@ -50,7 +50,7 @@ function search() {
  var q = $(".query").val();
  getData(urlMovie, q, 'movie');
 	getData(urlTv, q, 'tv');
-}
+};
 
 //chiamata api
 function getData(url, query, type ) {
@@ -72,7 +72,7 @@ function getData(url, query, type ) {
     alert("Errore", err);
   }
  });
-}
+};
 
 //funzione per ciclare e stampare elementi
 function print(type, elems) {
@@ -89,9 +89,7 @@ function print(type, elems) {
   var poster = '';
    if (elem.poster_path) {
     poster = 'https://image.tmdb.org/t/p/w342' + elem.poster_path;
-   }else {
-     '<img src="img/pirate.png">'
-   }
+   };
 
    var context = {
     title: title,
@@ -112,7 +110,7 @@ function print(type, elems) {
 
      $(".query").val('');
 
- }
+ };
 
 
  // Funzione per generare le stelle
@@ -125,7 +123,7 @@ function print(type, elems) {
     :'<i class="far fa-star"></i>';
   }
   return res;
- }
+ };
 
  //funzione per aggiungere le badiere
  function flagGenerator(lang) {
